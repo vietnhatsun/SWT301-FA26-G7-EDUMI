@@ -1,0 +1,12 @@
+tcId,examId,targetQuestion,actionData,expectedResult,description
+TC-M07-01,toan-12-thpt-01,1,timer,COUNTDOWN_ACTIVE,Kiem tra dong ho dem nguoc dang hoat dong giam dan tung giay
+TC-M07-02,toan-12-thpt-01,1,A,OPTION_SELECTED,Chon dap an trac nghiem A o cau 1 thanh cong
+TC-M07-03,toan-12-thpt-01,1,C,OPTION_CHANGED,Thay doi dap an da chon tu A sang C thanh cong
+TC-M07-04,toan-12-thpt-01,5,a:true;b:false,TRUE_FALSE_SELECTED,Chon Dung hoac Sai cho tung y con o cau trac nghiem Dung Sai
+TC-M07-05,toan-12-thpt-01,4,,QUESTION_NAVIGATED,Nhay truc tiep toi cau 4 bang thanh muc luc ben phai
+TC-M07-06,toan-12-thpt-01,1,next_prev,NAVIGATION_SWITCHED,Dieu huong giua cac cau hoi bang nut Cau tiep theo va Cau truoc
+TC-M07-07,toan-12-thpt-01,2,,FLAG_MARKED,Danh dau co xem lai o cau 2 doi trang thai tren thanh muc luc
+TC-M07-08,toan-12-thpt-01,1,125%,FONT_SCALED,Thay doi kich thuoc font chu phong thi sang 125 percent thanh cong
+TC-M07-09,toan-12-thpt-01,1,,KATEX_RENDERED,Cong thuc toan hoc duoc render sac net qua KaTeX khong lo ma tho
+TC-M07-10,toan-12-thpt-01,1,submit,MODAL_OPENED,Bam nut Nop bai thi hien thi modal xac nhan nop bai
+

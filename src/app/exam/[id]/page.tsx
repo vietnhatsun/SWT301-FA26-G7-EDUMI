@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { MOCK_EXAMS, ExamItem } from "@/components/exam/exam-data";
 import ExamRoomClient from "@/components/exam/ExamRoomClient";
 import { createServiceClient } from "@/lib/supabase";
@@ -119,7 +118,7 @@ export default async function ExamRoomPage({ params, searchParams }: PageProps) 
             href="/exam"
             className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-emerald-700 transition"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
             <span>Quay lại sảnh phòng thi</span>
           </Link>
         </div>

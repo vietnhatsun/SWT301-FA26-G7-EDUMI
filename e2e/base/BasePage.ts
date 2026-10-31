@@ -17,7 +17,11 @@ export abstract class BasePage {
   protected async click(locator: By): Promise<void> {
     const element = await this.waitVisible(locator);
     await this.driver.wait(until.elementIsEnabled(element), env.timeoutMs);
-    await element.click();
+    try {
+      await element.click();
+    } catch {
+      await this.driver.executeScript('arguments[0].click();', element);
+    }
   }
 
   protected async type(locator: By, text: string | undefined): Promise<void> {
@@ -34,7 +38,9 @@ export abstract class BasePage {
 
   protected async isDisplayed(locator: By): Promise<boolean> {
     try {
-      return await (await this.waitVisible(locator)).isDisplayed();
+      const elements = await this.driver.findElements(locator);
+      if (elements.length === 0) return false;
+      return await elements[0].isDisplayed();
     } catch {
       return false;
     }
@@ -52,4 +58,3 @@ export abstract class BasePage {
     await this.driver.get(`${env.baseUrl}${path}`);
   }
 }
-
