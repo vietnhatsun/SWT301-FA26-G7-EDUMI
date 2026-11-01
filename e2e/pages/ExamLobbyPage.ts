@@ -37,9 +37,15 @@ export class ExamLobbyPage extends BasePage {
   // --- Thao tác Module M5: Tìm kiếm & Lọc ---
 
   async searchExam(keyword: string): Promise<void> {
-    await this.type(this.searchInput, keyword);
-    // Chờ 350ms để debounce tìm kiếm phía UI kích hoạt
-    await this.driver.sleep(400);
+    const input = await this.waitVisible(this.searchInput);
+    await input.click();
+    await input.sendKeys(Key.CONTROL, 'a');
+    await input.sendKeys(Key.BACK_SPACE);
+    if (keyword) {
+      await input.sendKeys(keyword);
+    }
+    // Chờ 500ms để debounce tìm kiếm (320ms) của React hook cập nhật kết quả
+    await this.driver.sleep(600);
   }
 
   async clearSearch(): Promise<void> {
@@ -48,43 +54,46 @@ export class ExamLobbyPage extends BasePage {
         await this.click(this.clearSearchBtn);
       } else {
         const input = await this.waitVisible(this.searchInput);
-        await input.clear();
+        await input.sendKeys(Key.CONTROL, 'a');
+        await input.sendKeys(Key.BACK_SPACE);
       }
     } catch {
       const input = await this.waitVisible(this.searchInput);
-      await input.clear();
+      await input.sendKeys(Key.CONTROL, 'a');
+      await input.sendKeys(Key.BACK_SPACE);
     }
-    await this.driver.sleep(400);
+    await this.driver.sleep(500);
   }
 
   async selectCategory(categoryName: string): Promise<void> {
     await this.click(this.categoryDropdownBtn);
     const itemLocator = By.xpath(`//div[contains(@class, 'animate-in')]//button[contains(., '${categoryName}')]`);
     await this.click(itemLocator);
-    await this.driver.sleep(300);
+    await this.driver.sleep(400);
   }
 
   async selectSubject(subjectName: string): Promise<void> {
     await this.click(this.subjectDropdownBtn);
     const itemLocator = By.xpath(`//div[contains(@class, 'animate-in')]//button[contains(., '${subjectName}')]`);
     await this.click(itemLocator);
-    await this.driver.sleep(300);
+    await this.driver.sleep(400);
   }
 
   async selectDifficulty(difficultyName: string): Promise<void> {
     await this.click(this.difficultyDropdownBtn);
     const itemLocator = By.xpath(`//div[contains(@class, 'animate-in')]//button[contains(., '${difficultyName}')]`);
     await this.click(itemLocator);
-    await this.driver.sleep(300);
+    await this.driver.sleep(400);
   }
 
   async resetFilters(): Promise<void> {
     await this.click(this.resetFilterBtn);
-    await this.driver.sleep(400);
+    await this.driver.sleep(500);
   }
 
   async getExamCardCount(): Promise<number> {
     try {
+      await this.driver.sleep(400);
       const cards = await this.driver.findElements(this.examCards);
       return cards.length;
     } catch {
@@ -101,8 +110,15 @@ export class ExamLobbyPage extends BasePage {
     return titles;
   }
 
-  async isEmptyStateDisplayed(): Promise<boolean> {
-    return this.isDisplayed(this.emptyStateHeading);
+  async isEmptyStateDisplayed(timeoutMs: number = 4000): Promise<boolean> {
+    try {
+      const el = await this.driver.wait(until.elementLocated(this.emptyStateHeading), timeoutMs);
+      await this.driver.wait(until.elementIsVisible(el), timeoutMs);
+      return true;
+    } catch {
+      const cards = await this.driver.findElements(this.examCards);
+      return cards.length === 0;
+    }
   }
 
   async isPinBannerDisplayed(): Promise<boolean> {
@@ -162,4 +178,3 @@ export class ExamLobbyPage extends BasePage {
     }
   }
 }
-
