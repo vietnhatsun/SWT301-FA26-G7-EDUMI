@@ -20,7 +20,12 @@ export class HomePage extends BasePage {
   private readonly premiumNavLink = By.css("a[href='/premium']");
   private readonly loginOrProfileLink = By.css("a[href='/login'], a[href='/profile']");
 
+  // Hero Section & CTA
   private readonly heroSection = By.css("main section");
+  private readonly heroHeading = By.xpath("//h1[contains(.,'Học toàn diện') or contains(.,'Nền tảng')]");
+  private readonly ctaButton = By.css("a[href='/about']");
+
+  // Footer
   private readonly footer = By.css("footer");
 
   async openPage(): Promise<this> {
@@ -77,7 +82,39 @@ export class HomePage extends BasePage {
     return this.isDisplayed(this.heroSection);
   }
 
+  async isHeroHeadingDisplayed(): Promise<boolean> {
+    return this.isDisplayed(this.heroHeading);
+  }
+
+  async isCtaButtonDisplayed(): Promise<boolean> {
+    return this.isDisplayed(this.ctaButton);
+  }
+
+  async clickCtaButton(): Promise<void> {
+    await this.click(this.ctaButton);
+  }
+
+  async clickClassesLink(): Promise<void> {
+    await this.click(this.classesNavLink);
+  }
+
+  async clickMaterialsLink(): Promise<void> {
+    await this.click(this.materialsNavLink);
+  }
+
+  async clickExamLink(): Promise<void> {
+    await this.click(this.examNavLink);
+  }
+
+  async clickBrandLogo(): Promise<void> {
+    await this.click(this.brandLogoLink);
+  }
+
   async isFooterDisplayed(): Promise<boolean> {
     return this.isDisplayed(this.footer);
+  }
+
+  async scrollToFooter(): Promise<void> {
+    await this.driver.executeScript("window.scrollTo(0, document.body.scrollHeight);");
   }
 }
