@@ -1,0 +1,12 @@
+tcId,description,action,tab,inputText,fileName,expectedResult
+TC-M10-01,Mở Modal AI Exam Scanner từ nút Scan đề trên form tạo đề,open,create,,,modal_opened
+TC-M10-02,Chuyển đổi sang Tab Dán nội dung thô Paste Text,switch_tab,paste,,,paste_tab_active
+TC-M10-03,Bấm nút Thử dán đề mẫu tự động điền văn bản đề thi chuẩn,sample,paste,,,sample_pasted
+TC-M10-04,Nhập văn bản đề thi thủ công có chứa công thức Toán học,input,paste,Cho hàm số $y=f(x)$,,text_entered
+TC-M10-05,Kích hoạt quá trình phân tích quét đề AI hiển thị bộ đếm thời gian,scan,paste,,,scanning_active
+TC-M10-06,Bấm nút Dừng quét ngắt tiến trình an toàn và hiển thị thông báo,stop,paste,,,scan_stopped
+TC-M10-07,Chuyển sang Tab Tải tệp đề thi và kiểm tra vùng kéo thả file,switch_tab,upload,,,upload_tab_active
+TC-M10-08,Kiểm tra nút Bắt đầu Quét bị vô hiệu hóa khi chưa nhập dữ liệu,validate,upload,,,disabled
+TC-M10-09,Đóng Modal AI Scanner bằng nút X ở góc trên,close_x,create,,,modal_closed
+TC-M10-10,Đóng Modal AI Scanner bằng nút Hủy bỏ ở footer bảo toàn form,close_cancel,create,,,modal_closed
+
