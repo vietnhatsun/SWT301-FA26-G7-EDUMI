@@ -1,0 +1,11 @@
+tcId,examId,mode,userAnswers,expectedResult,description
+TC-M08-01,toan-12-thpt-01,exam,partial,UNANSWERED_WARNING,Canh bao so cau chua lam khi bam Nop bai thi
+TC-M08-02,toan-12-thpt-01,exam,partial,CONTINUE_EXAM,Bam Xem lai bai thi dong modal va giu nguyen bai lam
+TC-M08-03,toan-12-thpt-01,exam,timeout,AUTO_SUBMIT,Tu dong thu bai va khoa de thi khi het gio lam bai
+TC-M08-04,toan-12-thpt-01,exam,all,RESULT_VIEW_DISPLAYED,Xac nhan nop bai thanh cong chuyen sang man hinh ket qua
+TC-M08-05,toan-12-thpt-01,exam,all_correct,PERFECT_SCORE_10,Hien thi chinh xac tong diem tren thang diem 10
+TC-M08-06,toan-12-thpt-01,exam,mixed,ACCURATE_STATS,Thong ke chinh xac so cau dung sai va chua lam
+TC-M08-07,toan-12-thpt-01,exam,tf_progressive,PROGRESSIVE_RUBRIC,Tinh diem cau Dung Sai luy tien theo barem Bo GD va DT
+TC-M08-08,toan-12-thpt-01,exam,all,EXPLANATION_VISIBLE,Hien thi chi tiet dap an dung kem loi giai thich
+TC-M08-09,toan-12-thpt-01,exam,all,KATEX_RESULT_RENDERED,Cong thuc toan hoc trong loi giai hien thi sac net qua KaTeX
+TC-M08-10,toan-12-thpt-01,exam,all,RETAKE_RESET,Bam nut Lam lai de nay reset bai thi va bat dau luot thi moi
