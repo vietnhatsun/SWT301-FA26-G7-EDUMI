@@ -70,10 +70,13 @@ describe('Module M01: Trang chủ & Khóa học (Landing Page)', () => {
 
       case 'TC-M01-04': {
         // BR-M1-04: Điều hướng đến trang Lớp học /classes từ Navbar thành công
+        // 1. Thao tác click vào liên kết Lớp học
         await homePage.clickClassesLink();
+
+        // 2. Chờ điều hướng hoàn tất và kiểm tra URL đích
         await driver.wait(async () => (await homePage.getCurrentUrl()).includes('/classes'), 10000);
         const currentUrl = await homePage.getCurrentUrl();
-        expect(currentUrl).toContain('/classes');
+        expect(currentUrl, 'URL sau khi click phải chuyển hướng đến /classes').toContain('/classes');
         break;
       }
 
