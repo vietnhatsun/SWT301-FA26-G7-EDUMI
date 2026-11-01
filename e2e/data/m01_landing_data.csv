@@ -1,0 +1,12 @@
+tcId,description,expectedTitle,expectedBrandName,expectedResult
+TC-M01-01,Mo trang chu hien thi dung Brand Logo va Tieu de website EduMi,EduMi - Học thông minh cùng Capy & Bứt phá điểm số THPT,EduMi,SUCCESS
+TC-M01-02,Thanh dieu huong Navbar hien thi day du cac lien ket chinh,,EduMi,SUCCESS
+TC-M01-03,Hien thi Banner Hero chinh tren man hinh trang chu,,EduMi,SUCCESS
+TC-M01-04,Lien ket den trang Lop hoc hoat dong chinh xac,/classes,,SUCCESS
+TC-M01-05,Lien ket den trang Tai lieu hoat dong chinh xac,/materials,,SUCCESS
+TC-M01-06,Logo thuong hieu dieu huong tro ve trang chu khi click,/,,SUCCESS
+TC-M01-07,Kiem tra hien thi hinh anh dai dien EduMi Logo,,EduMi,SUCCESS
+TC-M01-08,Kiem tra trang chu co the cuon xuong va hien thi Footer,,EduMi,SUCCESS
+TC-M01-09,Kiem tra title website khong bi rong khi tai trang,,EduMi,SUCCESS
+TC-M01-10,Kiem tra responsive va bo cuc giao dien trang chu hop le,,EduMi,SUCCESS
+
