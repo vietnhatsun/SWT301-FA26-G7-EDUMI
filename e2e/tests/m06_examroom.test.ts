@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { until } from 'selenium-webdriver';
 import { useDriver } from '../base/BaseTest';
 import { readCsv } from '../utils/csv';
 import { ExamLobbyPage } from '../pages/ExamLobbyPage';
@@ -82,6 +83,7 @@ describe('Module M6 - Sảnh chờ thi & Modal xác nhận bắt đầu làm bà
       case 'start_exam': {
         await page.openFirstExamModal();
         await page.startExam();
+        await browser.get().wait(until.urlContains('/exam/'), 5000);
         const currentUrl = await page.getCurrentUrl();
         expect(currentUrl).toContain('/exam/');
         break;
@@ -99,4 +101,3 @@ describe('Module M6 - Sảnh chờ thi & Modal xác nhận bắt đầu làm bà
     }
   });
 });
-
