@@ -14,7 +14,7 @@ export class ExamLobbyPage extends BasePage {
   private readonly subjectDropdownBtn = By.xpath("//button[.//span[contains(text(), 'Môn học') or contains(text(), 'Toán') or contains(text(), 'Vật lý') or contains(text(), 'Hóa học') or contains(text(), 'Ngữ văn')]]");
   private readonly difficultyDropdownBtn = By.xpath("//button[.//span[contains(text(), 'Độ khó') or contains(text(), 'Cơ bản') or contains(text(), 'Vận dụng')]]");
   private readonly resetFilterBtn = By.xpath("//button[contains(., 'Xóa lọc') or contains(., 'Xóa tất cả bộ lọc')]");
-  private readonly emptyStateHeading = By.xpath("//h3[contains(text(), 'Không tìm thấy đề thi phù hợp')]");
+  private readonly emptyStateHeading = By.xpath("//*[contains(normalize-space(.), 'Không tìm thấy đề thi phù hợp')]");
   private readonly examCards = By.css("article");
   private readonly pinBanner = By.xpath("//div[contains(text(), 'Đã tìm thấy phòng thi theo Mã PIN')]");
 
@@ -39,13 +39,23 @@ export class ExamLobbyPage extends BasePage {
   async searchExam(keyword: string): Promise<void> {
     const input = await this.waitVisible(this.searchInput);
     await input.click();
-    await input.sendKeys(Key.CONTROL, 'a');
-    await input.sendKeys(Key.BACK_SPACE);
-    if (keyword) {
-      await input.sendKeys(keyword);
-    }
-    // Chờ 500ms để debounce tìm kiếm (320ms) của React hook cập nhật kết quả
-    await this.driver.sleep(600);
+    // Sử dụng JavaScript native setter để React 19 nhận diện event onChange 100%
+    await this.driver.executeScript(
+      `
+      const input = arguments[0];
+      const val = arguments[1] ?? '';
+      const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+      setter.call(input, val);
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    `,
+      input,
+      keyword
+    );
+    // Gửi thêm 1 phím Space rồi xóa ngay để đảm bảo kích hoạt WebDriver event
+    await input.sendKeys(' ', Key.BACK_SPACE);
+    // Chờ 600ms cho debounce (320ms) của React cập nhật danh sách
+    await this.driver.sleep(700);
   }
 
   async clearSearch(): Promise<void> {
@@ -54,8 +64,16 @@ export class ExamLobbyPage extends BasePage {
         await this.click(this.clearSearchBtn);
       } else {
         const input = await this.waitVisible(this.searchInput);
-        await input.sendKeys(Key.CONTROL, 'a');
-        await input.sendKeys(Key.BACK_SPACE);
+        await this.driver.executeScript(
+          `
+          const input = arguments[0];
+          const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+          setter.call(input, '');
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+        `,
+          input
+        );
       }
     } catch {
       const input = await this.waitVisible(this.searchInput);
@@ -110,12 +128,13 @@ export class ExamLobbyPage extends BasePage {
     return titles;
   }
 
-  async isEmptyStateDisplayed(timeoutMs: number = 4000): Promise<boolean> {
+  async isEmptyStateDisplayed(timeoutMs: number = 3000): Promise<boolean> {
     try {
       const el = await this.driver.wait(until.elementLocated(this.emptyStateHeading), timeoutMs);
       await this.driver.wait(until.elementIsVisible(el), timeoutMs);
       return true;
     } catch {
+      // Fallback: nếu danh sách thẻ đề thi = 0 thì tức là trạng thái rỗng
       const cards = await this.driver.findElements(this.examCards);
       return cards.length === 0;
     }
