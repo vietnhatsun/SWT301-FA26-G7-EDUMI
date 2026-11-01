@@ -1,0 +1,12 @@
+tcId,description,keyword,category,subject,difficulty,expectedResult
+TC-M05-01,Tìm kiếm đề thi theo từ khóa tên môn học Toán,Toán,,,,found
+TC-M05-02,Tìm kiếm không phân biệt chữ hoa thường VẬT LÝ,VẬT LÝ,,,,found
+TC-M05-03,Tìm kiếm từ khóa không tồn tại trả về thông báo rỗng,zzzyyy123456,,,,empty
+TC-M05-04,Lọc đề thi theo Kỳ thi THPT Quốc Gia,,THPT Quốc Gia,,,found
+TC-M05-05,Lọc đề thi theo Kỳ thi ĐGNL ĐHQG,,ĐGNL ĐHQG,,,found
+TC-M05-06,Lọc đề thi theo Môn học Hóa học,,,Hóa học,,found
+TC-M05-07,Lọc đề thi theo Độ khó Vận dụng,,,Vận dụng (7-8.5đ),found
+TC-M05-08,Kết hợp đồng thời lọc THPT Quốc Gia và Môn Toán,,THPT Quốc Gia,Toán học,,found
+TC-M05-09,Tìm kiếm an toàn với chuỗi XSS Script,<script>alert(1)</script>,,,,safe
+TC-M05-10,Xóa bộ lọc và quay về danh sách mặc định,,THPT Quốc Gia,,,reset
+
