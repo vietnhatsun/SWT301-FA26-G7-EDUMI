@@ -1,0 +1,11 @@
+tcId,fullName,email,password,role,expectedResult
+TC-M03-01,Nguyễn Văn A,student001@edumi.vn,Secret@123,student,success
+TC-M03-02,Á,invalidemail@edumi.vn,Secret@123,student,errorName
+TC-M03-03,Nguyễn Văn B,studentinvalid,Secret@123,student,errorEmailFormat
+TC-M03-04,Nguyễn Văn C,student@edumi.vn,Secret@123,student,errorEmailExists
+TC-M03-05,Nguyễn Văn D,student002@edumi.vn,Abc@123,student,errorPwdShort
+TC-M03-06,Nguyễn Văn E,student003@edumi.vn,Abcd@123,student,success
+TC-M03-07,Nguyễn Văn F,student004@edumi.vn,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,student,success
+TC-M03-08,Nguyễn Văn G,student005@edumi.vn,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,student,errorPwdLong
+TC-M03-09,Nguyễn Văn H,student006@edumi.vn,Secret@123,teacher,success
+TC-M03-10,Nguyễn Văn I,student007@edumi.vn,Secret@123,parent,success
