@@ -1,0 +1,12 @@
+tcId,action,otpValue,expectedResult
+TC-M04-01,verify_correct,CORRECT_OTP,successActivated
+TC-M04-02,verify_wrong,000000,errorWrongOtp
+TC-M04-03,check_button_disabled,12345,buttonDisabled
+TC-M04-04,type_letters,abcXYZ,inputRejectsLetters
+TC-M04-05,verify_used_otp,CORRECT_OTP,errorUsedOrExpired
+TC-M04-06,verify_expired_otp,EXPIRED_OTP,errorExpired
+TC-M04-07,resend_otp,,resendSuccess
+TC-M04-08,check_countdown,,countdownVisible
+TC-M04-09,verify_then_redirect,CORRECT_OTP,redirectToLogin
+TC-M04-10,click_back_button,,backToRegister
+
