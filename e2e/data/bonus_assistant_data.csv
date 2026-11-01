@@ -1,0 +1,7 @@
+tcId,description,action,modelName,promptText,expectedResult
+TC-BONUS-01,Truy cập giao diện AI Study Assistant kiểm tra Mascot và lời chào,open,,,assistant_loaded
+TC-BONUS-02,Mở danh sách và chuyển đổi mô hình sang Deep Reasoning 9+,switch_model,Deep Reasoning 9+,,model_switched
+TC-BONUS-03,Bấm thẻ gợi ý nhanh Quick Prompt kích hoạt gửi tin nhắn tự động,quick_prompt,,Bóc tách câu hỏi bẫy đề thi,prompt_sent
+TC-BONUS-04,Nhập yêu cầu lộ trình học vào ô chat và gửi tin nhắn,chat_input,,Lập lộ trình ôn thi Toán 12 trong 30 ngày đạt 8+,message_displayed
+TC-BONUS-05,Bấm nút Trò chuyện mới reset phiên hội thoại về màn hình ban đầu,new_chat,,,chat_reset
+
