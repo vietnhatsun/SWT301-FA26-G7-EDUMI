@@ -1,0 +1,12 @@
+tcId,description,role,title,subject,questionType,correctOpt,formula,expectedResult
+TC-M09-01,Staff truy cập thành công tab quản lý đề thi trong profile,staff,,,,,,success
+TC-M09-02,Học sinh Student bị chặn không thấy công cụ quản trị Staff,student,,,,,,forbidden
+TC-M09-03,Nhập tiêu đề đề thi và thiết lập thông tin cơ bản hợp lệ,staff,Đề khảo sát chất lượng Toán 12 năm 2026,Toán học,,,,success
+TC-M09-04,Thêm một câu hỏi trắc nghiệm đơn 4 lựa chọn A B C D,staff,,,single_choice,,,added
+TC-M09-05,Chọn đáp án B làm đáp án đúng cho câu hỏi trắc nghiệm,staff,,,,B,,updated
+TC-M09-06,Thêm một câu hỏi trắc nghiệm Đúng Sai 4 mệnh đề con,staff,,,true_false,,,added
+TC-M09-07,Xóa câu hỏi khỏi đề thi cập nhật số lượng câu,staff,,,,,,deleted
+TC-M09-08,Live Math Preview hiển thị công thức Toán khi gõ ký hiệu LaTeX,staff,,,,,\Delta U = A + Q,katex_rendered
+TC-M09-09,Kiểm tra hiển thị huy hiệu tổng điểm ma trận câu hỏi,staff,,,,,,score_badge
+TC-M09-10,Chuyển đổi giữa danh sách bài thi và màn hình soạn thảo đề,staff,,,,,,tab_switched
+
