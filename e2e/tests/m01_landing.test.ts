@@ -35,6 +35,30 @@ describe('Module M01: Trang chủ & Khóa học (Landing Page)', () => {
         break;
       }
 
+      case 'TC-M01-02': {
+        // BR-M1-02: Thanh điều hướng Navbar hiển thị đầy đủ các liên kết chính
+        // 1. Kiểm tra header Navbar hiển thị
+        const isNavbarVisible = await homePage.isNavbarDisplayed();
+        expect(isNavbarVisible, 'Thanh điều hướng Navbar phải hiển thị trên trang chủ').toBe(true);
+
+        // 2. Kiểm tra liên kết Lớp học (/classes)
+        const isClassesVisible = await homePage.isClassesLinkDisplayed();
+        expect(isClassesVisible, 'Liên kết Lớp Học (/classes) phải hiển thị trên Navbar').toBe(true);
+
+        // 3. Kiểm tra liên kết Tài liệu (/materials)
+        const isMaterialsVisible = await homePage.isMaterialsLinkDisplayed();
+        expect(isMaterialsVisible, 'Liên kết Tài liệu (/materials) phải hiển thị trên Navbar').toBe(true);
+
+        // 4. Kiểm tra liên kết Phòng thi (/exam)
+        const isExamVisible = await homePage.isExamLinkDisplayed();
+        expect(isExamVisible, 'Liên kết Phòng thi (/exam) phải hiển thị trên Navbar').toBe(true);
+
+        // 5. Kiểm tra liên kết Trợ lí ảo (/assistant)
+        const isAssistantVisible = await homePage.isAssistantLinkDisplayed();
+        expect(isAssistantVisible, 'Liên kết Trợ lí ảo (/assistant) phải hiển thị trên Navbar').toBe(true);
+        break;
+      }
+
       default: {
         const isVisible = await homePage.isBrandLogoDisplayed();
         expect(isVisible).toBe(true);

@@ -11,8 +11,15 @@ export class HomePage extends BasePage {
   private readonly brandLogoImg = By.css("img[alt='EduMi Logo']");
   private readonly brandTitle = By.xpath("//a[@href='/']//span[contains(text(),'EduMi')]");
   private readonly navbar = By.css("header");
-  private readonly classesNavLink = By.css("a[href='/classes']");
-  private readonly materialsNavLink = By.css("a[href='/materials']");
+  
+  // Locators các liên kết chính trên Navbar
+  private readonly classesNavLink = By.css("nav a[href='/classes'], a[href='/classes']");
+  private readonly materialsNavLink = By.css("nav a[href='/materials'], a[href='/materials']");
+  private readonly examNavLink = By.css("nav a[href='/exam'], a[href='/exam']");
+  private readonly assistantNavLink = By.css("nav a[href='/assistant'], a[href='/assistant']");
+  private readonly premiumNavLink = By.css("a[href='/premium']");
+  private readonly loginOrProfileLink = By.css("a[href='/login'], a[href='/profile']");
+
   private readonly heroSection = By.css("main section");
   private readonly footer = By.css("footer");
 
@@ -48,6 +55,22 @@ export class HomePage extends BasePage {
 
   async isMaterialsLinkDisplayed(): Promise<boolean> {
     return this.isDisplayed(this.materialsNavLink);
+  }
+
+  async isExamLinkDisplayed(): Promise<boolean> {
+    return this.isDisplayed(this.examNavLink);
+  }
+
+  async isAssistantLinkDisplayed(): Promise<boolean> {
+    return this.isDisplayed(this.assistantNavLink);
+  }
+
+  async isPremiumLinkDisplayed(): Promise<boolean> {
+    return this.isDisplayed(this.premiumNavLink);
+  }
+
+  async isLoginOrProfileLinkDisplayed(): Promise<boolean> {
+    return this.isDisplayed(this.loginOrProfileLink);
   }
 
   async isHeroSectionDisplayed(): Promise<boolean> {
