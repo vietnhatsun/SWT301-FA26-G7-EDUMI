@@ -1,0 +1,12 @@
+tcId,description,actionType,inputParam,expectedResult
+TC-M06-01,Mở modal sảnh chờ thi khi click Vào thi,open_modal,,modal_displayed
+TC-M06-02,Kiểm tra thông số thời gian làm bài hiển thị đúng,check_duration,phút,duration_valid
+TC-M06-03,Kiểm tra thông số số lượng câu hỏi hiển thị đúng,check_questions,câu,question_valid
+TC-M06-04,Kiểm tra tiêu đề và tác giả đề thi hiển thị đầy đủ,check_info,,info_valid
+TC-M06-05,Đóng modal bằng nút Quay lại an toàn,close_back_btn,,modal_closed
+TC-M06-06,Đóng modal bằng phím bấm ESC an toàn,close_esc,,esc_closed
+TC-M06-07,Sao chép mã đề thi nhanh bằng nút Copy trên thẻ,copy_code,,copy_success
+TC-M06-08,Tìm kiếm mã PIN phòng thi hiển thị banner thông báo,search_pin,EDM-8899,pin_found
+TC-M06-09,Xác nhận bắt đầu làm bài điều hướng vào phòng thi,start_exam,,navigate_exam
+TC-M06-10,Truy cập đề thi không tồn tại xử lý an toàn không crash,invalid_url,/exam/slug-khong-ton-tai-12345,not_found_safe
+

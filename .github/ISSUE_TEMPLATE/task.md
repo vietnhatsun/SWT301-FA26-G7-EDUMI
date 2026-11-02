@@ -27,3 +27,4 @@ assignees: ""
 
 ### 3. Ghi chú & Thảo luận
 *Ghi nhận những khó khăn về locator, wait hoặc câu hỏi cần thống nhất với nhóm tại đây...*
+

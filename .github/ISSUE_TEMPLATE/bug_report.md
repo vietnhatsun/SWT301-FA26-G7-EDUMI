@@ -51,3 +51,4 @@ assignees: ""
 - [ ] Lỗi chức năng của website EduMi (SUT Defect - Cần dev fix)
 - [ ] Lỗi kiểm thử giao diện / Testability (Thiếu data-testid, trùng id...)
 - [ ] Sai khác tài liệu yêu cầu (Requirement defect)
+

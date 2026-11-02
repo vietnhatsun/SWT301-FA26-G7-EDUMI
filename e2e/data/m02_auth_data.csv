@@ -1,0 +1,12 @@
+tcId,description,email,password,expectedType,expectedMessage,expectedRedirect
+TC-M02-01,Dang nhap thanh cong voi tai khoan hoc sinh,{STUDENT_EMAIL},{STUDENT_PASSWORD},SUCCESS,Đăng nhập thành công,/profile
+TC-M02-02,Bao loi khi nhap sai mat khau,student@edumi.vn,WrongPass@123,ERROR,Email hoặc mật khẩu không chính xác,/login
+TC-M02-03,Bao loi khi email khong ton tai,notfound@edumi.vn,Secret@123,ERROR,Email hoặc mật khẩu không chính xác,/login
+TC-M02-04,Chan submit khi de trong truong email,,Secret@123,VALIDATION,Vui lòng điền vào trường này,/login
+TC-M02-05,Chan submit khi de trong mat khau,student@edumi.vn,,VALIDATION,Vui lòng điền vào trường này,/login
+TC-M02-06,Mat khau phan biet chu hoa chu thuong,student@edumi.vn,secret@123,ERROR,Email hoặc mật khẩu không chính xác,/login
+TC-M02-07,Chan dang nhap tai khoan chua kich hoat OTP,unverified@edumi.vn,Secret@123,WARNING,chưa được xác thực mã OTP,/login
+TC-M02-08,Chan dang nhap tai khoan bi khoa,banned@edumi.vn,Secret@123,ERROR,Tài khoản của bạn đã bị khóa,/login
+TC-M02-09,Dang nhap tai khoan Giao vien thanh cong,{TEACHER_EMAIL},{TEACHER_PASSWORD},SUCCESS,Đăng nhập thành công,/profile
+TC-M02-10,Chong tan cong SQL Injection vao o dang nhap,' OR '1'='1,' OR '1'='1,ERROR,Email hoặc mật khẩu không chính xác,/login
+

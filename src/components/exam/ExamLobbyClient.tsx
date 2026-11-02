@@ -204,8 +204,9 @@ function matchSearch(sourceText: string, query: string): boolean {
     let list = [...examsList];
 
     // 1. Search Query: Smart multi-token + PIN matching (e.g., EDM-8899 / EDM8899)
-    if (debouncedQuery.trim()) {
-      const q = debouncedQuery.trim();
+    const activeSearch = (searchQuery || debouncedQuery).trim();
+    if (activeSearch) {
+      const q = activeSearch;
 
       list = list.filter((item) => {
         // Khớp PIN hoặc ID
@@ -287,6 +288,8 @@ function matchSearch(sourceText: string, query: string): boolean {
     return list;
   }, [
     searchQuery,
+    debouncedQuery,
+    examsList,
     selectedCategory,
     selectedSubject,
     selectedDuration,

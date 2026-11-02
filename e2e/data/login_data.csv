@@ -1,0 +1,6 @@
+tcId,email,password,expectedResult,expectedMessage
+TC-LOGIN-001,{STUDENT_EMAIL},{STUDENT_PASSWORD},SUCCESS,
+TC-LOGIN-002,{STUDENT_EMAIL},WrongPass@123,FAIL,Email hoặc mật khẩu không chính xác.
+TC-LOGIN-003,notexist@example.com,Abcd@1234,FAIL,Email hoặc mật khẩu không chính xác.
+TC-LOGIN-004,,Abcd@1234,FAIL,Vui lòng nhập đầy đủ Email và Mật khẩu.
+

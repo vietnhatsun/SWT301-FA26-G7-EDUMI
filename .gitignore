@@ -61,3 +61,7 @@ desktop.ini
 
 # Drizzle (generated migration files — commit nếu muốn track migrations)
 # drizzle/
+
+# E2E Automation Testing
+.env.e2e
+e2e-reports/
